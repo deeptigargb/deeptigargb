@@ -1,0 +1,7 @@
+setup.py
+deeptigargb/__init__.py
+deeptigargb/print_name.py
+deeptigargb_deepti.egg-info/PKG-INFO
+deeptigargb_deepti.egg-info/SOURCES.txt
+deeptigargb_deepti.egg-info/dependency_links.txt
+deeptigargb_deepti.egg-info/top_level.txt

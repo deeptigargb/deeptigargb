@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: deeptigargb-deepti
+Version: 0.0.1
+Summary: Trying Small personal package
+Home-page: https://github.com/deeptigargb/deeptigargb
+Author: Deepti Garg
+Author-email: garg.deepti996@gmail.com
+License: UNKNOWN
+Description: ### You are at awesome place and you are going to enjoy it
+        
+        ####Now let's begin
+        
+        
+        :smiley:
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
