@@ -3,7 +3,7 @@ VERSION=latest
 PIPELINE_IMAGE=dee_image
 
 build:
-	docker build -t $(REPO)/$(PIPELINE_IMAGE):${VERSION} -f Dockerfile ../..
+	docker build -t $(REPO)/$(PIPELINE_IMAGE):${VERSION} -f Dockerfile .
 
 shell: build
 	docker run -it --rm $(REPO)/$(PIPELINE_IMAGE):${VERSION} bash
