@@ -6,7 +6,7 @@ import logging
 
 default_args = {
     "start_date" : datetime(2020,1,1),
-    "owner" : "dee"
+    "owner" : "deepti"
 }
 
 with DAG(dag_id='query-to-log', schedule_interval='@daily', default_args=default_args) as dag:
