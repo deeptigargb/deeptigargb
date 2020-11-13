@@ -29,7 +29,7 @@ pipeline {
         stage("Build & push Docker image") {
                     steps {
                         script {
-                            docker.withRegistry('https://quay.io', 'kube_jenkins') {
+                            docker.withRegistry('https://quay.io') {
                                 sh """
                                      make build
                                      make push
