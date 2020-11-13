@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'TagName',  defaultValue: 'dev-uk', description: 'Docker image tag name')
-        choice(name: 'Region', choices: ['uk', 'ca', 'us', 'sg'], description: 'Region to deploy to')
-        choice(name: 'Environment', choices: ['dev', 'prod'], description: 'Environment to deploy to')
-    }
-
     environment {
         COMPONENT_IMAGE = "quay.io/deeptigargb/deeptigargb:master"
     }

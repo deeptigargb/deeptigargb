@@ -1,5 +1,5 @@
 REPO=quay.io/deeptigargb/deeptigargb
-VERSION=latest
+VERSION=$(shell git rev-parse HEAD)
 PIPELINE_IMAGE=dee_image
 
 build:
