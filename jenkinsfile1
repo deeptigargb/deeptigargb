@@ -9,9 +9,10 @@ pipeline {
         stage("first try stage") {
                 steps {
                     script {
-                           sh """
-                                 echo 'everything is fine till here'
-                              """
+                           docker.withRegistry('https://quay.io') {
+                                sh """
+                                    docker help
+                                   """
                     }
                 }
         }
