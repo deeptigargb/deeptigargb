@@ -12,6 +12,15 @@ pipeline {
     }
 
     stages {
+        stage("first try stage") {
+                steps {
+                    script {
+                           sh """
+                                 echo 'everything is fine till here'
+                              """
+                    }
+                }
+        }
         stage("Git first") {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/deeptigargb/deeptigargb']]])
         }
