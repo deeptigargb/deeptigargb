@@ -1,0 +1,9 @@
+pipelines:
+  prod-uk:
+      gcp_project: "data-dev-239410"
+      composer_environment: "dap-dev-uk"
+      composer_location: "europe-west2"
+  dev-uk:
+      gcp_project: "data-dev-239410"
+      composer_environment: "dap-dev-uk"
+      composer_location: "europe-west2"

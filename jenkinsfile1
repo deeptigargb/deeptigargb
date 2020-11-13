@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'TagName',  defaultValue: 'dev-uk', description: 'Docker image tag name')
+        choice(name: 'Region', choices: ['uk', 'ca', 'us', 'sg'], description: 'Region to deploy to')
+        choice(name: 'Environment', choices: ['dev', 'prod'], description: 'Environment to deploy to')
+    }
+
+    environment {
+        COMPONENT_IMAGE = "quay.io/deeptigargb/deeptigargb:master"
+    }
+
+    stages {
+        stage("Build & push Docker image") {
+                    steps {
+                        script {
+                            docker.withRegistry('https://quay.io', 'kube_jenkins') {
+                                sh """
+                                     make build
+                                     make push
+                                """
+                            }
+                        }
+                    }
+                }
+        stage('Pull docker image') {
+            steps {
+                script {
+                    docker.withRegistry('https://quay.io', 'kube_jenkins') {
+                        sh "docker pull ${env.COMPONENT_IMAGE}"
+                    }
+                }
+             }
+        }
+        stage('Synchronize bucket to Composer environment') {
+            steps {
+                withCredentials([file(credentialsId: "dap-deploy", variable: 'gcpcredentials')]) {
+                sh """
+                    docker run  -v ${gcpcredentials}:/home/jenkins/credentials \
+                    --rm \
+                    ${env.COMPONENT_IMAGE}\
+                    sh -c 'python sync_composer.py'
+                """
+                }
+            }
+        }
+    }
+}
