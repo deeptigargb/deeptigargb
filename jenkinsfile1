@@ -12,6 +12,9 @@ pipeline {
     }
 
     stages {
+        stage("Git first") {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/deeptigargb/deeptigargb']]])
+        }
         stage("Build & push Docker image") {
                     steps {
                         script {
